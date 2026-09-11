@@ -1,0 +1,1312 @@
+{
+  "name": "自動化碳盤查排放量+人工審核",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "/carbon/upload",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -512,
+        640
+      ],
+      "id": "e6e77e44-4a38-470c-a596-9e9757f62ea3",
+      "name": "Webhook",
+      "webhookId": "e8e79b3f-c2ca-43ac-b71e-7a1e64a592b0"
+    },
+    {
+      "parameters": {
+        "binaryPropertyName": "scope1",
+        "options": {
+          "encoding": "utf-8"
+        }
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1,
+      "position": [
+        208,
+        -304
+      ],
+      "id": "64cd7726-62d1-479c-852e-ed98f1a3b1f7",
+      "name": "Extract from File"
+    },
+    {
+      "parameters": {
+        "binaryPropertyName": "scope2",
+        "options": {
+          "encoding": "utf-8"
+        }
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1,
+      "position": [
+        208,
+        -144
+      ],
+      "id": "7567d0f6-785a-4bb5-9f8f-9b934b13643f",
+      "name": "Extract from File1"
+    },
+    {
+      "parameters": {
+        "binaryPropertyName": "master",
+        "options": {
+          "encoding": "utf-8"
+        }
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1,
+      "position": [
+        208,
+        160
+      ],
+      "id": "670252ac-c371-446f-b700-4b0511ddd562",
+      "name": "Extract from File2"
+    },
+    {
+      "parameters": {
+        "binaryPropertyName": "company_info",
+        "options": {
+          "encoding": "utf-8"
+        }
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1,
+      "position": [
+        208,
+        320
+      ],
+      "id": "9be5b92a-5b88-4f67-9753-0c922e83e861",
+      "name": "Extract from File3"
+    },
+    {
+      "parameters": {
+        "binaryPropertyName": "suppliers",
+        "options": {
+          "encoding": "utf-8"
+        }
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1,
+      "position": [
+        208,
+        480
+      ],
+      "id": "b697170c-bfd2-450c-bf01-b2de2d27574f",
+      "name": "Extract from File4"
+    },
+    {
+      "parameters": {
+        "binaryPropertyName": "products",
+        "options": {
+          "encoding": "utf-8"
+        }
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1,
+      "position": [
+        208,
+        656
+      ],
+      "id": "92021636-db6f-499e-8bdf-106cebb5f039",
+      "name": "Extract from File5"
+    },
+    {
+      "parameters": {
+        "binaryPropertyName": "shipments",
+        "options": {
+          "encoding": "utf-8"
+        }
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1,
+      "position": [
+        208,
+        848
+      ],
+      "id": "993c0c82-201e-4435-b2f5-2faf733a3f3b",
+      "name": "Extract from File6"
+    },
+    {
+      "parameters": {
+        "binaryPropertyName": "orders",
+        "options": {
+          "encoding": "utf-8"
+        }
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1,
+      "position": [
+        208,
+        1024
+      ],
+      "id": "59871a31-6387-42a1-8931-f98e1453cb75",
+      "name": "Extract from File7"
+    },
+    {
+      "parameters": {
+        "binaryPropertyName": "finance",
+        "options": {
+          "encoding": "utf-8"
+        }
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1,
+      "position": [
+        208,
+        1216
+      ],
+      "id": "653bb172-1493-409c-a3d7-15e014e4eb8d",
+      "name": "Extract from File8"
+    },
+    {
+      "parameters": {
+        "binaryPropertyName": "hr",
+        "options": {
+          "encoding": "utf-8"
+        }
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1,
+      "position": [
+        208,
+        1408
+      ],
+      "id": "860d98b5-4b20-4ea7-a425-049380079fba",
+      "name": "Extract from File9"
+    },
+    {
+      "parameters": {
+        "operation": "toJson",
+        "binaryPropertyName": "scope1",
+        "options": {
+          "fileName": "scope1"
+        }
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        416,
+        -304
+      ],
+      "id": "9c069ad6-77c7-4a34-9225-5957a962c96a",
+      "name": "Convert to File"
+    },
+    {
+      "parameters": {
+        "operation": "toJson",
+        "binaryPropertyName": "scope2",
+        "options": {
+          "fileName": "scope2"
+        }
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        416,
+        -144
+      ],
+      "id": "494b6f3e-6906-4e92-a7b9-8f905f2faf8d",
+      "name": "Convert to File1"
+    },
+    {
+      "parameters": {
+        "operation": "toJson",
+        "binaryPropertyName": "master",
+        "options": {
+          "fileName": "master"
+        }
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        416,
+        160
+      ],
+      "id": "e6126b3d-1916-4c88-baa5-b45ae84cc1c5",
+      "name": "Convert to File2"
+    },
+    {
+      "parameters": {
+        "binaryPropertyName": "scope3",
+        "options": {
+          "encoding": "utf-8"
+        }
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1,
+      "position": [
+        208,
+        16
+      ],
+      "id": "c03572d5-ebf2-4f74-89e4-0278a294d054",
+      "name": "Extract from File10"
+    },
+    {
+      "parameters": {
+        "operation": "toJson",
+        "binaryPropertyName": "scope3",
+        "options": {
+          "fileName": "scope3"
+        }
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        416,
+        16
+      ],
+      "id": "ad2a4b0e-d1eb-498d-84d7-6a01771811e7",
+      "name": "Convert to File3"
+    },
+    {
+      "parameters": {
+        "operation": "toJson",
+        "binaryPropertyName": "company_info",
+        "options": {
+          "fileName": "company_info"
+        }
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        416,
+        320
+      ],
+      "id": "61eb02ac-fdc0-46dd-b7de-c0304bd2849a",
+      "name": "Convert to File4"
+    },
+    {
+      "parameters": {
+        "operation": "toJson",
+        "binaryPropertyName": "suppliers",
+        "options": {
+          "fileName": "suppliers"
+        }
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        416,
+        480
+      ],
+      "id": "e0198b87-8a76-4b5b-a868-d1935cea8788",
+      "name": "Convert to File5"
+    },
+    {
+      "parameters": {
+        "operation": "toJson",
+        "binaryPropertyName": "products",
+        "options": {
+          "fileName": "products"
+        }
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        416,
+        656
+      ],
+      "id": "9f79398e-c7db-45ab-ab9d-22cb72023cfb",
+      "name": "Convert to File6"
+    },
+    {
+      "parameters": {
+        "operation": "toJson",
+        "binaryPropertyName": "shipments",
+        "options": {
+          "fileName": "shipments"
+        }
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        416,
+        848
+      ],
+      "id": "93f0e530-0f9b-42d5-acc9-fcace442ebee",
+      "name": "Convert to File7"
+    },
+    {
+      "parameters": {
+        "operation": "toJson",
+        "binaryPropertyName": "orders",
+        "options": {
+          "fileName": "orders"
+        }
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        416,
+        1024
+      ],
+      "id": "08b96dc7-2fe7-4d50-93a5-fe74880f6ecc",
+      "name": "Convert to File8"
+    },
+    {
+      "parameters": {
+        "operation": "toJson",
+        "binaryPropertyName": "finance",
+        "options": {
+          "fileName": "finance"
+        }
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        416,
+        1216
+      ],
+      "id": "05dca73f-d1d6-4023-a79d-53e5a53e0517",
+      "name": "Convert to File9"
+    },
+    {
+      "parameters": {
+        "operation": "toJson",
+        "binaryPropertyName": "hr",
+        "options": {
+          "fileName": "hr"
+        }
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        416,
+        1408
+      ],
+      "id": "ec2bee35-0c62-4e43-9103-fd77ab3b9fd7",
+      "name": "Convert to File10"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.table }}",
+                    "rightValue": "=scope1_monthly",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "c72ae052-7650-4e69-857e-319579f03733"
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        2080,
+        352
+      ],
+      "id": "7d85839d-5cf3-46bf-bd75-e2d472c42c82",
+      "name": "提取(Scope 1)"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.table }}",
+                    "rightValue": "scope2_monthly",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "c72ae052-7650-4e69-857e-319579f03733"
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        2080,
+        528
+      ],
+      "id": "713010a2-80ca-4c44-9d61-f520c2d1f0ae",
+      "name": "提取(Scope 2)"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.table }}",
+                    "rightValue": "scope3_monthly",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "c72ae052-7650-4e69-857e-319579f03733"
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        2080,
+        704
+      ],
+      "id": "ce5d5b9e-8a0c-4999-8e74-8022dafa7131",
+      "name": "提取(Scope 3)"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.table }}",
+                    "rightValue": "scope3_by_category",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "c72ae052-7650-4e69-857e-319579f03733"
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        2080,
+        880
+      ],
+      "id": "a4b946e5-5808-4628-9c59-0cb813484e6f",
+      "name": "提取(Scope 3_by)"
+    },
+    {
+      "parameters": {
+        "operation": "toJson",
+        "binaryPropertyName": "scope1_monthly",
+        "options": {
+          "fileName": "scope1_monthly"
+        }
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        2384,
+        352
+      ],
+      "id": "3fd77d8f-9d90-44e7-bf1b-90c8b49ef995",
+      "name": "直接排放"
+    },
+    {
+      "parameters": {
+        "operation": "toJson",
+        "binaryPropertyName": "scope2_monthly",
+        "options": {
+          "fileName": "scope2_monthly"
+        }
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        2384,
+        528
+      ],
+      "id": "4577cba6-8242-48a6-b3bb-85b790ae3b84",
+      "name": "間接排放"
+    },
+    {
+      "parameters": {
+        "operation": "toJson",
+        "binaryPropertyName": "scope3_monthly",
+        "options": {
+          "fileName": "scope3_monthly"
+        }
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        2384,
+        704
+      ],
+      "id": "d6fcf666-a00a-46d2-95e4-6e592f34b776",
+      "name": "其他間接排放"
+    },
+    {
+      "parameters": {
+        "operation": "toJson",
+        "binaryPropertyName": "=result {{ $json.table }}",
+        "options": {
+          "fileName": "result"
+        }
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        2384,
+        1056
+      ],
+      "id": "bb2ed6e3-f34f-4087-a4d2-a8275fe411a3",
+      "name": "結果總表result.json"
+    },
+    {
+      "parameters": {
+        "operation": "toJson",
+        "binaryPropertyName": "scope3_by_category",
+        "options": {
+          "fileName": "scope3_by_category"
+        }
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        2384,
+        880
+      ],
+      "id": "c5c98a81-ee5c-46a1-a942-4789b8613f74",
+      "name": "各類別 (Cat.1~Cat.9)「熱點」"
+    },
+    {
+      "parameters": {
+        "numberInputs": 5
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        2816,
+        560
+      ],
+      "id": "8b1e1e07-c30f-4369-aab4-deee1921ca72",
+      "name": "Merge4"
+    },
+    {
+      "parameters": {
+        "jsCode": "// ======================= Utilities =======================\nconst N = v => Number(String(v ?? '').replace(/,/g,'').trim()) || 0;\n\n// 去掉 BOM、全形括號、空白\nconst cleanKey = k => String(k||'')\n  .replace(/^\\uFEFF/,'').replace(/\\uFEFF/g,'')\n  .replace(/\\s+/g,'')\n  .replace('（','(').replace('）',')');\n\nconst normalizeKeys = (row) => {\n  const o = {};\n  for (const [k,v] of Object.entries(row||{})) o[cleanKey(k)] = v;\n  return o;\n};\n\nconst ym = (y,m) => `${y}-${String(m).padStart(2,'0')}`;\nconst g_to_kg = g => g/1000;\n\n// ================== Emission Factors (DEMO) ==================\n// 請之後換成你正式的係數表\nconst EF = {\n  fuel: { \"柴油_L\": 2.68, \"汽油_L\": 2.31, \"LPG_kg\": 3.00 },     // kgCO2e / 單位\n  electricity: { location_based: 0.509 },                        // kgCO2e / kWh\n  refrigerantGWP: { \"R-410A\": 2088, \"R-134a\": 1430 },            // GWP\n  // S3\n  material_ef: { \"default\": 2.0 },                               // kgCO2e / kg（Cat1 質量法，示例）\n  spend_based: { \"Cat1\": 0.0006, \"Cat2\": 0.0008 },               // kgCO2e / TWD（示例）\n  transport_g_per_tkm: { \"truck_20t\": 90, \"truck_7.5t\": 180, \"van\": 250 }, // gCO2e/ton-km\n  waste: { \"焚化/掩埋\": 0.8, \"回收\": 0.05, \"回收再利用\": 0.02, \"再生處理\": 0.1 },  // kgCO2e/kg\n  travel_g_per_km: { \"飛機_短程_經濟艙\": 160, \"高鐵\": 14, \"自用車\": 180 },         // gCO2e/km\n  commute_g_per_km_per_person: { \"汽車\": 180, \"機車\": 90, \"大眾運輸\": 35, \"自行車/步行\": 0 },\n  grid_TD_loss_pct: 6.0,\n};\n\n// ================== 1) 讀 Binary → 依檔名分桶 ==================\nconst buckets = {}; // scope1/scope2/scope3/master/... -> array<row>\nfor (const it of $input.all()) {\n  const binProp = Object.keys(it.binary || {})[0];  // 通常是 \"data\"\n  if (!binProp) continue;\n  const bin = it.binary[binProp];\n  const name = String(bin.fileName || '').toLowerCase(); // e.g. \"scope1\"\n  if (!name) continue;\n\n  // binary 是 base64，轉成文字再 parse\n  const txt = Buffer.from(bin.data, 'base64').toString('utf8').replace(/^\\uFEFF/, '');\n  let arr = [];\n  try { arr = JSON.parse(txt); } catch { arr = []; }\n  buckets[name] = (buckets[name] || []).concat(arr.map(normalizeKeys));\n}\n\n// 取各表；若未上傳某檔則給空陣列\nconst S1 = buckets.scope1 || [];\nconst S2 = buckets.scope2 || [];\nconst S3 = (buckets.scope3 || []).concat(buckets.master || []); // master 若含 S3 類資料也一併吃\n// 其餘公司檔：company_info / suppliers / products / orders / shipments / finance / hr\n// 目前不進計算，但你要切部門/據點時可以用：buckets.company_info 等\n\n// ================== 2) 結果容器 ==================\nconst result = {\n  scope1: { monthly: {}, total: 0 },\n  scope2: { monthly: {}, total: 0 },\n  scope3: { monthly: {}, total: 0, cat: {1:0,2:0,3:0,4:0,5:0,6:0,7:0,9:0} },\n  debug: { s1_rows: S1.length, s2_rows: S2.length, s3_rows: S3.length },\n  total: 0,\n};\n\n// ================== 3) 計算：Scope 1 ==================\nfor (const r of S1) {\n  const Y = N(r['年']), M = N(r['月']); const key = (Y && M) ? ym(Y,M) : 'NA';\n  let co2e = 0;\n\n  // 燃料\n  if (r['活動類型'] && r['數量'] != null && r['單位']) {\n    const qty = N(r['數量']);\n    if (String(r['活動類型']).includes('柴油') && r['單位']==='L') co2e = qty * EF.fuel['柴油_L'];\n    else if (String(r['活動類型']).includes('汽油') && r['單位']==='L') co2e = qty * EF.fuel['汽油_L'];\n    else if (String(r['活動類型']).includes('LPG')) co2e = qty * EF.fuel['LPG_kg'];\n  }\n  // 冷媒\n  if (r['冷媒種類'] && r['補充量'] != null) {\n    const gwp = EF.refrigerantGWP[r['冷媒種類']] || 0;\n    co2e = N(r['補充量']) * gwp;\n  }\n\n  result.scope1.monthly[key] = (result.scope1.monthly[key] || 0) + co2e;\n  result.scope1.total += co2e;\n}\n\n// ================== 4) 計算：Scope 2 ==================\nfor (const r of S2) {\n  const Y = N(r['年']), M = N(r['月']); const key = (Y && M) ? ym(Y,M) : 'NA';\n  const kwh = N(r['用電量'] ?? r['用電量(kWh)'] ?? 0);\n  const renewable = N(r['再生電比例(%)'] ?? 0)/100;\n  const co2e = kwh * EF.electricity.location_based * (1 - renewable);\n  result.scope2.monthly[key] = (result.scope2.monthly[key] || 0) + co2e;\n  result.scope2.total += co2e;\n}\n\n// ================== 5) 計算：Scope 3（Cat1/2/3/4/5/6/7/9） ==================\nfor (const r of S3) {\n  const Y = N(r['年']), M = N(r['月']); const key = (Y && M) ? ym(Y,M) : 'NA';\n  let co2e = 0, cat = null;\n\n  // Cat4/9：運輸（距離*重量*運具）\n  if (r['距離(km)'] && r['重量(kg)'] && r['運具']) {\n    const tkm = (N(r['距離(km)']) * N(r['重量(kg)'])) / 1000;\n    const gpt = EF.transport_g_per_tkm[r['運具']] || 0;\n    co2e = g_to_kg(tkm * gpt);\n    cat = (String(r['運輸類型']||'').includes('下游')) ? 9 : 4;\n  }\n\n  // Cat1：採購（質量法 / 支出法）\n  if (!co2e && r['材料名稱']) {\n    if (r['數量'] != null && (r['單位']==='kg' || r['單位']==='KG')) {\n      const ef = EF.material_ef[r['材料名稱']] ?? EF.material_ef['default'];\n      co2e = N(r['數量']) * ef; cat = 1;\n    } else if (r['金額'] != null) {\n      co2e = N(r['金額']) * EF.spend_based['Cat1']; cat = 1;\n    }\n  }\n\n  // Cat2：資本財（支出法）\n  if (!co2e && r['項目'] && r['金額'] != null) {\n    co2e = N(r['金額']) * EF.spend_based['Cat2']; cat = 2;\n  }\n\n  // Cat3：燃料/電力相關（不含 S1/2）\n  if (!co2e && (r['用電量(kWh)'] || r['用電量'])) {\n    const kwh = N(r['用電量(kWh)'] ?? r['用電量'] ?? 0);\n    const td = N(r['T&D損失比例(%)'] ?? EF.grid_TD_loss_pct) / 100;\n    const upstream_g = N(r['上游燃料排放估比(gCO2e/kWh)'] ?? 0);\n    const td_loss = kwh * EF.electricity.location_based * td; // kg\n    const upstream = kwh * g_to_kg(upstream_g);                // kg\n    co2e = td_loss + upstream; cat = 3;\n  }\n\n  // Cat5：廢棄物\n  if (!co2e && r['廢棄物類別'] && r['處理方式'] && r['數量(kg)'] != null) {\n    const efW = EF.waste[r['處理方式']] ?? 0.5;\n    co2e = N(r['數量(kg)']) * efW; cat = 5;\n  }\n\n  // Cat6：差旅\n  if (!co2e && r['交通工具'] && r['距離(km)']) {\n    const gpkm = EF.travel_g_per_km[r['交通工具']] ?? 120;\n    co2e = g_to_kg(N(r['距離(km)']) * gpkm); cat = 6;\n  }\n\n  // Cat7：通勤\n  if (!co2e && r['交通方式'] && r['通勤人數'] && r['每人每日單趟距離(km)'] && r['每月上班天數']) {\n    const gpkm = EF.commute_g_per_km_per_person[r['交通方式']] ?? 100;\n    const monthly_km = N(r['通勤人數']) * N(r['每人每日單趟距離(km)']) * N(r['每月上班天數']) * 2;\n    co2e = g_to_kg(monthly_km * gpkm); cat = 7;\n  }\n\n  result.scope3.monthly[key] = (result.scope3.monthly[key] || 0) + co2e;\n  result.scope3.total += co2e;\n  if (cat) result.scope3.cat[cat] += co2e;\n}\n\n// ================== 6) 總量 + 扁平表輸出 ==================\nresult.total = result.scope1.total + result.scope2.total + result.scope3.total;\n\nconst s1 = Object.entries(result.scope1.monthly).map(([month, co2e]) => ({ scope:\"S1\", month, co2e_kg: co2e }));\nconst s2 = Object.entries(result.scope2.monthly).map(([month, co2e]) => ({ scope:\"S2\", month, co2e_kg: co2e }));\nconst s3 = Object.entries(result.scope3.monthly).map(([month, co2e]) => ({ scope:\"S3\", month, co2e_kg: co2e }));\nconst s3cat = Object.entries(result.scope3.cat).map(([cat, co2e]) => ({ scope3_category:`Cat${cat}`, co2e_kg: co2e }));\n\nreturn [\n  { json: result },                                // 0: 總彙總（含 debug）\n  { json: { table: \"scope1_monthly\", rows: s1 } }, // 1\n  { json: { table: \"scope2_monthly\", rows: s2 } }, // 2\n  { json: { table: \"scope3_monthly\", rows: s3 } }, // 3\n  { json: { table: \"scope3_by_category\", rows: s3cat } }, // 4\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1520,
+        608
+      ],
+      "id": "054d6cce-24bd-4610-a116-9bbcd6723bc1",
+      "name": "計算排放量"
+    },
+    {
+      "parameters": {
+        "numberInputs": 6
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        928,
+        288
+      ],
+      "id": "0e611665-8c9b-4e8e-8f86-d236a05ed69a",
+      "name": "數據整合"
+    },
+    {
+      "parameters": {
+        "numberInputs": 6
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        928,
+        768
+      ],
+      "id": "894057c0-f056-4b92-8898-1c7ce7d4d636",
+      "name": "數據整合1"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        1232,
+        608
+      ],
+      "id": "20750064-c01e-4fdd-b880-0ba3f22f41c8",
+      "name": "數據整合2"
+    },
+    {
+      "parameters": {
+        "content": "📌 附件內容（review_bundle.zip）：\n- `inventory.json`：完整盤查總表（含各 Scope 與 Cat1~9 分類）\n- `scope_summary.csv`：各 Scope 總量與占比\n- `scope3_breakdown.csv`：Scope3 類別占比明細\n- `review_summary.json`：審核摘要與異常檢測結果",
+        "height": 224,
+        "width": 256
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        3120,
+        800
+      ],
+      "typeVersion": 1,
+      "id": "589fee02-1b21-4a2a-ac9b-0d8eeb9ad0d6",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "🔍 請審查人員確認：\n1. 總量計算是否正確；\n2. EF（排放因子）版本與來源是否符合規範；\n3. 異常月份與 Cat1~9 分類是否合理；\n4. 若有任何數據疑慮，請回覆說明。",
+        "height": 224,
+        "width": 256
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        3456,
+        800
+      ],
+      "typeVersion": 1,
+      "id": "59fa4c93-51ab-4ea3-8ce7-a6d3a0f695c0",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "jsCode": "// 將多個輸入 item 的 binary 合併為「單一 item、四個 binary 欄位」\nconst outBinary = {};\nfor (const it of $input.all()) {\n  if (!it.binary) continue;\n  const binKey = Object.keys(it.binary)[0];     // 一般叫 \"data\"\n  const b = it.binary[binKey];\n  const fname = (b.fileName || '').toLowerCase();\n\n  // 依檔名決定要放到哪個欄位\n  let key = '';\n  if (fname.includes('inventory')) key = 'inventory';\n  else if (fname.includes('scope_summary')) key = 'scope_summary';\n  else if (fname.includes('scope3_breakdown')) key = 'scope3_breakdown';\n  else if (fname.includes('review_summary')) key = 'review_summary';\n  else key = fname.replace(/\\.[^.]+$/, '').replace(/[^a-z0-9_]+/g, '_');\n\n  // 直接沿用原本的 base64，不要重新編碼\n  outBinary[key] = {\n    data: b.data,\n    fileName: b.fileName || (key + '.bin'),\n    mimeType: b.mimeType || 'application/octet-stream',\n  };\n}\n\n// 回傳「單一 item、多個 binary 欄位」\nreturn [{\n  json: { note: 'review bundle binaries' },\n  binary: outBinary,\n}];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3264,
+        608
+      ],
+      "id": "5d32712d-7e2f-4a5f-b652-17d709eb8335",
+      "name": "整合四個檔案為一個"
+    },
+    {
+      "parameters": {
+        "jsCode": "/***** Helpers *****/\nconst toTons = (kg) => +(kg / 1000).toFixed(3);\nconst round = (v, n=3) => +(+v).toFixed(n);\nconst csv = (rows) => {\n  if (!rows || !rows.length) return '';\n  const headers = Object.keys(rows[0]);\n  return [headers.join(','), ...rows.map(r => headers.map(h => (r[h] ?? '')).join(','))].join('\\n');\n};\nconst fileItem = (fileName, mime, content) => ({\n  json: { fileName, mime },\n  binary: { data: { data: Buffer.from(content).toString('base64'), fileName, mimeType: mime } }\n});\nconst pct = (a,b) => b ? +(a/b*100).toFixed(2) : 0;\nconst percentile = (arr, p=95) => {\n  if (!arr.length) return 0;\n  const a = [...arr].sort((x,y)=>x-y);\n  const i = Math.ceil((p/100)*a.length) - 1;\n  return a[Math.max(0, Math.min(a.length-1, i))];\n};\n\n/***** 1) 讀取 Merge 的輸入：同時支援 json 與 binary（關鍵修正） *****/\nconst payloads = [];\nfor (const it of $input.all()) {\n  // 先吃 json（若上游有直接傳 JSON）\n  if (it.json && Object.keys(it.json).length) {\n    if (Array.isArray(it.json)) payloads.push(...it.json);\n    else payloads.push(it.json);\n  }\n  // 再吃 binary（Convert to JSON 節點通常輸出這個）\n  if (it.binary) {\n    const binKey = Object.keys(it.binary)[0];            // 通常叫 data\n    if (binKey) {\n      const b = it.binary[binKey];\n      try {\n        const txt = Buffer.from(b.data, 'base64').toString('utf8').replace(/^\\uFEFF/, '');\n        const parsed = JSON.parse(txt);\n        if (Array.isArray(parsed)) payloads.push(...parsed);\n        else if (parsed && typeof parsed === 'object') payloads.push(parsed);\n      } catch (e) {\n        // 若不是 JSON，略過\n      }\n    }\n  }\n}\n// 二度攤平（避免陣列包陣列）\nfor (let i = payloads.length - 1; i >= 0; i--) {\n  if (Array.isArray(payloads[i])) payloads.splice(i, 1, ...payloads[i]);\n}\n\n/***** 2) 取 result 與各表 *****/\nconst resultItem = payloads.find(o => o && o.scope1 && o.scope2 && o.scope3) || {};\nconst tables = {};\nfor (const o of payloads) if (o && o.table && o.rows) tables[o.table] = o.rows;\n\nconst s1 = tables['scope1_monthly'] || [];\nconst s2 = tables['scope2_monthly'] || [];\nconst s3 = tables['scope3_monthly'] || [];\nconst s3cat = tables['scope3_by_category'] || [];\n\n/***** 3) Meta（可由 Set 節點寫入 meta；這裡先給預設） *****/\nconst metaCarrier = (payloads.find(o => o && o.meta)?.meta) || {};\nconst org = { org_id: metaCarrier.org_id ?? 'ACME', org_name: metaCarrier.org_name ?? 'ACME Ltd.' };\nconst period = { start: metaCarrier.period_start ?? '2024-01-01', end: metaCarrier.period_end ?? '2024-12-31' };\nconst efMeta = { gwp_version: metaCarrier.gwp_version ?? 'AR6', ef_source: metaCarrier.ef_source ?? 'DEMO', ef_version: metaCarrier.ef_version ?? '2024.06' };\n\n/***** 4) Totals *****/\nconst totals_kg = {\n  scope1: resultItem?.scope1?.total ?? 0,\n  scope2_loc: resultItem?.scope2?.total ?? 0,\n  scope2_mkt: resultItem?.scope2_mkt_total ?? (resultItem?.scope2?.total ?? 0),\n  scope3: resultItem?.scope3?.total ?? 0,\n};\nconst totals_t = {\n  scope1_t: toTons(totals_kg.scope1),\n  scope2_loc_t: toTons(totals_kg.scope2_loc),\n  scope2_mkt_t: toTons(totals_kg.scope2_mkt),\n  scope3_t: toTons(totals_kg.scope3),\n};\ntotals_t.all_loc_t = round(totals_t.scope1_t + totals_t.scope2_loc_t + totals_t.scope3_t);\ntotals_t.all_mkt_t = round(totals_t.scope1_t + totals_t.scope2_mkt_t + totals_t.scope3_t);\n\n/***** 5) S3 分類（轉噸、排序） *****/\nconst s3_breakdown = (s3cat || [])\n  .map(x => ({ cat: x.scope3_category, co2e_t: toTons(x.co2e_kg) }))\n  .sort((a,b)=>b.co2e_t - a.co2e_t);\n\n/***** 6) Outliers（P95） *****/\nconst series = rows => rows.map(r => +r.co2e_kg || 0);\nconst s1_out = s1.filter(r => r.co2e_kg > percentile(series(s1), 95)).map(r => r.month);\nconst s2_out = s2.filter(r => r.co2e_kg > percentile(series(s2), 95)).map(r => r.month);\nconst s3_out = s3.filter(r => r.co2e_kg > percentile(series(s3), 95)).map(r => r.month);\n\n/***** 7) Key points *****/\nconst s3_share = pct(totals_t.scope3_t, totals_t.all_loc_t);\nconst cat1_t = toTons(resultItem?.scope3?.cat?.['1'] ?? 0);\nconst keyPoints = [\n  `S3 佔比 ${s3_share}%（All_loc）`,\n  `Cat1 最大宗，約 ${cat1_t} tCO2e`,\n];\n\n/***** 8) 四個輸出檔 *****/\n// 1) inventory.json\nconst inventory = {\n  ...org, period, ...efMeta,\n  totals: {\n    scope1_t: totals_t.scope1_t,\n    scope2_loc_t: totals_t.scope2_loc_t,\n    scope2_mkt_t: totals_t.scope2_mkt_t,\n    scope3_t: totals_t.scope3_t,\n    all_loc_t: totals_t.all_loc_t,\n    all_mkt_t: totals_t.all_mkt_t,\n  },\n  breakdowns: { scope3_by_category: s3_breakdown },\n  debug: {\n    s1_rows: resultItem?.debug?.s1_rows ?? s1.length,\n    s2_rows: resultItem?.debug?.s2_rows ?? s2.length,\n    s3_rows: resultItem?.debug?.s3_rows ?? s3.length,\n  },\n};\n\n// 2) scope_summary.csv\nconst scopeSummaryRows = [\n  { scope: 'S1',      co2e_t: totals_t.scope1_t },\n  { scope: 'S2_loc',  co2e_t: totals_t.scope2_loc_t },\n  { scope: 'S2_mkt',  co2e_t: totals_t.scope2_mkt_t },\n  { scope: 'S3',      co2e_t: totals_t.scope3_t },\n  { scope: 'All_loc', co2e_t: totals_t.all_loc_t },\n  { scope: 'All_mkt', co2e_t: totals_t.all_mkt_t },\n].map(r => ({ ...org, ...period, ...efMeta, ...r }));\n\n// 3) scope3_breakdown.csv\nconst s3_total_t = scopeSummaryRows.find(r => r.scope === 'S3')?.co2e_t || 0;\nconst s3BreakdownRows = s3_breakdown.map(r => ({\n  ...org, ...period, ...efMeta,\n  cat: r.cat,\n  co2e_t: r.co2e_t,\n  share_pct: pct(r.co2e_t, s3_total_t),\n}));\n\n// 4) review_summary.json\nconst reviewSummary = {\n  period: `${period.start}~${period.end}`,\n  totals: {\n    S1: totals_t.scope1_t,\n    S2_loc: totals_t.scope2_loc_t,\n    S2_mkt: totals_t.scope2_mkt_t,\n    S3: totals_t.scope3_t,\n    All_loc: totals_t.all_loc_t,\n    All_mkt: totals_t.all_mkt_t,\n  },\n  key_points: keyPoints,\n  outliers: { S1: s1_out, S2: s2_out, S3: s3_out },\n  ef: efMeta,\n};\n\n/***** 9) 以 binary.data 輸出四個檔案 *****/\nreturn [\n  fileItem('inventory.json',       'application/json', JSON.stringify(inventory, null, 2)),\n  fileItem('scope_summary.csv',    'text/csv',         csv(scopeSummaryRows)),\n  fileItem('scope3_breakdown.csv', 'text/csv',         csv(s3BreakdownRows)),\n  fileItem('review_summary.json',  'application/json', JSON.stringify(reviewSummary, null, 2)),\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3056,
+        608
+      ],
+      "id": "138c80cf-ad1a-4cd0-9f79-cfef362ddb2f",
+      "name": "完整盤查總表"
+    },
+    {
+      "parameters": {
+        "operation": "compress",
+        "binaryPropertyName": "inventory,scope_summary,scope3_breakdown,review_summary",
+        "fileName": "員工專用_審核碳盤查_數據包"
+      },
+      "type": "n8n-nodes-base.compression",
+      "typeVersion": 1.1,
+      "position": [
+        3456,
+        608
+      ],
+      "id": "c683314b-a1b8-45fc-a349-2ca35238135b",
+      "name": "變成ZIP 方便發送"
+    },
+    {
+      "parameters": {
+        "sendTo": "echo6514work@gmail.com",
+        "subject": "[碳盤查覆核通知] ACME Ltd. 2024 年度排放量審核資料",
+        "message": "各位同仁您好，\n\n本信附上 ACME Ltd. 2024 年度碳盤查排放量審核資料，請貴部門進行人工覆核，並於五個工作天內回覆審核結果或提出更正建議。\n\n📅 盤查期間：2024-01-01 ~ 2024-12-31\n🌍 採用規範：GHG Protocol（GWP: AR6）\n📊 盤查總量：\n- 總排放量（location-based）：1,090.373 tCO2e\n- Scope1：82.305 tCO2e\n- Scope2（loc.）：233.498 tCO2e\n- Scope3：774.570 tCO2e（佔比 71.04%）\n- 其中 Cat1（採購）為最大宗，約 472.757 tCO2e\n\n📌 附件內容（review_bundle.zip）：\n- `inventory.json`：完整盤查總表（含各 Scope 與 Cat1~9 分類）\n- `scope_summary.csv`：各 Scope 總量與占比\n- `scope3_breakdown.csv`：Scope3 類別占比明細\n- `review_summary.json`：審核摘要與異常檢測結果\n\n🔍 請審查人員確認：\n1. 總量計算是否正確；\n2. EF（排放因子）版本與來源是否符合規範；\n3. 異常月份與 Cat1~9 分類是否合理；\n4. 若有任何數據疑慮，請回覆說明。\n\n感謝各位的協助，審查完成後，請回覆至永續發展部門，以便進行下一步報告編製。\n\n敬祝\n工作順利\n\nACME Ltd.\n永續發展部門\n",
+        "options": {
+          "attachmentsUi": {
+            "attachmentsBinary": [
+              {}
+            ]
+          }
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        3648,
+        608
+      ],
+      "id": "ad4af563-f3e9-4b0e-bbce-e21f62c2cf1f",
+      "name": "碳盤查排放量審核資料_人工審核",
+      "webhookId": "9944d868-c1ae-4eec-bd68-c732c2bc3da9",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "GrVNhA4F6BbkKtKg",
+          "name": "Gmail account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Extract from File",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Extract from File1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Extract from File2",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Extract from File3",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Extract from File4",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Extract from File5",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Extract from File6",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Extract from File7",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Extract from File8",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Extract from File9",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Extract from File10",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract from File": {
+      "main": [
+        [
+          {
+            "node": "Convert to File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract from File1": {
+      "main": [
+        [
+          {
+            "node": "Convert to File1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract from File10": {
+      "main": [
+        [
+          {
+            "node": "Convert to File3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract from File2": {
+      "main": [
+        [
+          {
+            "node": "Convert to File2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract from File3": {
+      "main": [
+        [
+          {
+            "node": "Convert to File4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract from File4": {
+      "main": [
+        [
+          {
+            "node": "Convert to File5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract from File9": {
+      "main": [
+        [
+          {
+            "node": "Convert to File10",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract from File8": {
+      "main": [
+        [
+          {
+            "node": "Convert to File9",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract from File7": {
+      "main": [
+        [
+          {
+            "node": "Convert to File8",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract from File6": {
+      "main": [
+        [
+          {
+            "node": "Convert to File7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract from File5": {
+      "main": [
+        [
+          {
+            "node": "Convert to File6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert to File10": {
+      "main": [
+        [
+          {
+            "node": "數據整合1",
+            "type": "main",
+            "index": 5
+          }
+        ]
+      ]
+    },
+    "Convert to File": {
+      "main": [
+        [
+          {
+            "node": "數據整合",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert to File1": {
+      "main": [
+        [
+          {
+            "node": "數據整合",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Convert to File3": {
+      "main": [
+        [
+          {
+            "node": "數據整合",
+            "type": "main",
+            "index": 2
+          }
+        ]
+      ]
+    },
+    "Convert to File2": {
+      "main": [
+        [
+          {
+            "node": "數據整合",
+            "type": "main",
+            "index": 3
+          }
+        ]
+      ]
+    },
+    "Convert to File4": {
+      "main": [
+        [
+          {
+            "node": "數據整合",
+            "type": "main",
+            "index": 4
+          }
+        ]
+      ]
+    },
+    "Convert to File5": {
+      "main": [
+        [
+          {
+            "node": "數據整合1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert to File6": {
+      "main": [
+        [
+          {
+            "node": "數據整合1",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Convert to File7": {
+      "main": [
+        [
+          {
+            "node": "數據整合1",
+            "type": "main",
+            "index": 2
+          }
+        ]
+      ]
+    },
+    "Convert to File8": {
+      "main": [
+        [
+          {
+            "node": "數據整合1",
+            "type": "main",
+            "index": 3
+          }
+        ]
+      ]
+    },
+    "Convert to File9": {
+      "main": [
+        [
+          {
+            "node": "數據整合1",
+            "type": "main",
+            "index": 4
+          }
+        ]
+      ]
+    },
+    "提取(Scope 1)": {
+      "main": [
+        [
+          {
+            "node": "直接排放",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "提取(Scope 2)": {
+      "main": [
+        [
+          {
+            "node": "間接排放",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "提取(Scope 3)": {
+      "main": [
+        [
+          {
+            "node": "其他間接排放",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "提取(Scope 3_by)": {
+      "main": [
+        [
+          {
+            "node": "各類別 (Cat.1~Cat.9)「熱點」",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "各類別 (Cat.1~Cat.9)「熱點」": {
+      "main": [
+        [
+          {
+            "node": "Merge4",
+            "type": "main",
+            "index": 3
+          }
+        ]
+      ]
+    },
+    "其他間接排放": {
+      "main": [
+        [
+          {
+            "node": "Merge4",
+            "type": "main",
+            "index": 2
+          }
+        ]
+      ]
+    },
+    "間接排放": {
+      "main": [
+        [
+          {
+            "node": "Merge4",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "直接排放": {
+      "main": [
+        [
+          {
+            "node": "Merge4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge4": {
+      "main": [
+        [
+          {
+            "node": "完整盤查總表",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "計算排放量": {
+      "main": [
+        [
+          {
+            "node": "提取(Scope 1)",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "提取(Scope 2)",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "提取(Scope 3)",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "提取(Scope 3_by)",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "結果總表result.json",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "結果總表result.json": {
+      "main": [
+        [
+          {
+            "node": "Merge4",
+            "type": "main",
+            "index": 4
+          }
+        ]
+      ]
+    },
+    "數據整合": {
+      "main": [
+        [
+          {
+            "node": "數據整合2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "數據整合1": {
+      "main": [
+        [
+          {
+            "node": "數據整合2",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "數據整合2": {
+      "main": [
+        [
+          {
+            "node": "計算排放量",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "整合四個檔案為一個": {
+      "main": [
+        [
+          {
+            "node": "變成ZIP 方便發送",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "完整盤查總表": {
+      "main": [
+        [
+          {
+            "node": "整合四個檔案為一個",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "變成ZIP 方便發送": {
+      "main": [
+        [
+          {
+            "node": "碳盤查排放量審核資料_人工審核",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "eb023273-16ae-4367-bac9-095cc243e2eb",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "f665edab145492b4c7448d44ee3c783f6e54ae19de0f66fe7609c6df4af32943"
+  },
+  "id": "V62kH5HWmXHnTIWw",
+  "tags": []
+}
