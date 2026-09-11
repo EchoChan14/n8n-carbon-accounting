@@ -96,3 +96,15 @@ flowchart TD
         D2 -->|確認無誤| D3[產出最終 ESG 盤查報告書]
         D2 -->|數據疑慮| D4[回饋修正原始活動數據]
     end
+```
+
+---
+## 👤 專案作者 (Author)
+
+**作者：Echo Chan (陳家傑)**
+
+**GitHub：@EchoChan14**
+
+研究範疇：企業流程自動化 (BPA)、低代碼系統架構 (n8n)、Order-to-Cash 決策優化、人機協作 (HITL) 風控模型
+
+---
